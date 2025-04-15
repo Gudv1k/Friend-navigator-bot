@@ -1,4 +1,5 @@
-# Функция приветствия
+from telegram import Update, ReplyKeyboardMarkup
+from telegram.ext import CommandHandler, ContextTypes
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     welcome_text = (
         "👋 Привет! Это бот для подготовки к экзамену IELTS.\n\n"
