@@ -21,7 +21,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Основной запуск
 def main():
-    application = Application.builder().token("ТВОЙ_ТОКЕН_ЗДЕСЬ").build()
+    application = Application.builder().token("8106959752:AAE-G0EcQJ31jEFZjgWuv9hMsdHgfMU2df4").build()
 
     application.add_handler(CommandHandler("start", start))
 
