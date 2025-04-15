@@ -1,16 +1,14 @@
+# Функция приветствия
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    welcome_text = (
+        "👋 Привет! Это бот для подготовки к экзамену IELTS.\n\n"
+        "Выбери команду:\n"
+        "/lessons — Начать обучение\n"
+        "/test — Пройти тест IELTS\n"
+        "/progress — Посмотреть прогресс\n"
+        "/help — Инструкция и помощь"
+    )
 
-import os
-import telebot
+    keyboard = ReplyKeyboardMarkup([['/lessons', '/test'], ['/progress', '/help']], resize_keyboard=True)
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-ALLOWED_USER_ID = int(os.getenv("ALLOWED_USER_ID"))
-
-bot = telebot.TeleBot(BOT_TOKEN)
-
-@bot.message_handler(func=lambda message: True)
-def handle_message(message):
-    if message.from_user.id != ALLOWED_USER_ID:
-        return
-    bot.reply_to(message, "Привет, Андрей! Связь установлена. Я буду уведомлять тебя о ходе проекта Friend.")
-
-bot.infinity_polling()
+    await update.message.reply_text(welcome_text, reply_markup=keyboard)
